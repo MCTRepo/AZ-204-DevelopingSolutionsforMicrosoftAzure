@@ -15,6 +15,7 @@ steps:
     displayName: "Install Jekyll"
 
   - script: |
+      gem update --system
       bundle install
       jekyll -v
       jekyll build          
