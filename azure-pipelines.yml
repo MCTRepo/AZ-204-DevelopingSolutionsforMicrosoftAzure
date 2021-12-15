@@ -1,31 +1,21 @@
 trigger:
-- master
+  - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+  - task: UseRubyVersion@0
+    inputs:
+      versionSpec: ">= 2.6"
 
-- script: |
-    gem install jekyll bundler
-    bundle install --retry=3 --jobs=4
-  displayName: 'bundle install'
- 
-- script: |
-    bundle install
-    jekyll build
-  displayName: 'jekyll'
- 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '_site'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  - script: |
+      gem install jekyll bundler
+      bundle install --retry=3 --jobs=4          
+    displayName: "Install Jekyll"
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: site
+  - script: |
+      bundle install
+      jekyll -v
+      jekyll build          
+    displayName: "Build Jekyll Site"
