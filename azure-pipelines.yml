@@ -26,6 +26,18 @@ steps:
       bundle install
     displayName: "Install jekyll"
 
+  - task: DownloadSecureFile@1
+    inputs:
+      secureFile: 'https://github.com/MicrosoftLearning/Jekyll-Theme/archive/refs/heads/master.zip'
+      retryCount: '1'
+
+  - task: ExtractFiles@1
+    inputs:
+      archiveFilePatterns: '**/*.zip'
+      destinationFolder: '$(System.DefaultWorkingDirectory)'
+      cleanDestinationFolder: false
+      overwriteExistingFiles: false
+
   - script: |
       bundle exec jekyll build
     displayName: "Jekyll build"
