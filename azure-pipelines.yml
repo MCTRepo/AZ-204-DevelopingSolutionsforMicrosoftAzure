@@ -5,27 +5,27 @@ pool:
   vmImage: "ubuntu-latest"
 
 steps:
-  - task: UseRubyVersion@0
-    inputs:
-      versionSpec: ">= 2.6"
+  # - task: UseRubyVersion@0
+  #   inputs:
+  #     versionSpec: ">= 2.6"
 
   - script: |
-      apt-get install ruby-full build-essential zlib1g-dev
+      sudo apt-get install ruby-full build-essential zlib1g-dev
     displayName: "Install Package"
 
   - script: |
-      echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-      echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-      echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-      source ~/.bashrc
+      sudo echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+      sudo echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+      sudo echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+      sudo source ~/.bashrc
     displayName: "Config gem"
 
   - script: |
-      gem install jekyll bundler
+      sudo gem install jekyll bundler
     displayName: "Install jekyll"
 
   - script: |
-      jekyll build
+      sudo jekyll build
     displayName: "Jekyll buils"
 
   - task: PublishBuildArtifacts@1
