@@ -22,6 +22,7 @@ steps:
 
   - script: |
       sudo gem install jekyll bundler
+      sudo gem install jekyll-sitemap
     displayName: "Install jekyll"
 
   - script: |
