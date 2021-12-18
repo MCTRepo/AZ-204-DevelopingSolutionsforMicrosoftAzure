@@ -22,16 +22,21 @@ steps:
 
   - script: |
       sudo gem install jekyll bundler
-      sudo bundle update --bundler
-      sudo gem update jekyll
+      sudo gem install jekyll-sitemap jekyll-mentions jemoji
     displayName: "Install jekyll"
 
   - script: |
       sudo jekyll build
     displayName: "Jekyll build"
 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)/_site'
+      Contents: '**'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(System.DefaultWorkingDirectory)'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
