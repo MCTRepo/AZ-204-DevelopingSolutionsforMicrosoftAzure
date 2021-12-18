@@ -26,7 +26,7 @@ steps:
 
   - script: |
       sudo jekyll build
-    displayName: "Jekyll buils"
+    displayName: "Jekyll build"
 
   - task: PublishBuildArtifacts@1
     inputs:
