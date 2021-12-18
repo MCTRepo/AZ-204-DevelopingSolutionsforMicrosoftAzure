@@ -23,11 +23,11 @@ steps:
   - script: |
       sudo gem install jekyll bundler
       sudo gem install jekyll-sitemap jekyll-mentions jemoji jekyll-remote-theme jekyll-mentions
-      sudo bundle install
+      bundle install
     displayName: "Install jekyll"
 
   - script: |
-      sudo bundle exec jekyll build
+      bundle exec jekyll build
     displayName: "Jekyll build"
 
   - task: CopyFiles@2
