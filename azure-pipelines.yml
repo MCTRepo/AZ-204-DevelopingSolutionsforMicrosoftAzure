@@ -26,10 +26,9 @@ steps:
       bundle install
     displayName: "Install jekyll"
 
-  - task: DownloadSecureFile@1
-    inputs:
-      secureFile: 'https://github.com/MicrosoftLearning/Jekyll-Theme/archive/refs/heads/master.zip'
-      retryCount: '1'
+  - script: |
+      curl --output . https://github.com/MicrosoftLearning/Jekyll-Theme/archive/refs/heads/master.zip
+    displayName: "Download file"
 
   - task: ExtractFiles@1
     inputs:
