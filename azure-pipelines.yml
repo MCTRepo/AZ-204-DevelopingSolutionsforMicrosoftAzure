@@ -23,7 +23,7 @@ steps:
   - script: |
       sudo gem install jekyll bundler
       sudo gem install jekyll-sitemap jekyll-mentions jemoji jekyll-remote-theme jekyll-mentions
-      sudo gem "MicrosoftLearning/Jekyll-Theme"
+      sudo bundle install
     displayName: "Install jekyll"
 
   - script: |
