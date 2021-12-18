@@ -14,18 +14,18 @@ steps:
     displayName: "Install Package"
 
   - script: |
-      sudo echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
-      sudo echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
-      sudo echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
-      sudo source ~/.bashrc
+      echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+      echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+      echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+      source ~/.bashrc
     displayName: "Config gem"
 
   - script: |
-      sudo gem install jekyll bundler
+      gem install jekyll bundler
     displayName: "Install jekyll"
 
   - script: |
-      sudo jekyll build
+      jekyll build
     displayName: "Jekyll buils"
 
   - task: PublishBuildArtifacts@1
