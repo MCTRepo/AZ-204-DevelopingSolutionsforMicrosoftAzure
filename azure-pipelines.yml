@@ -22,7 +22,8 @@ steps:
 
   - script: |
       sudo gem install jekyll bundler
-      sudo gem install jekyll-sitemap jekyll-mentions jemoji
+      sudo bundle update --bundler
+      sudo gem update jekyll
     displayName: "Install jekyll"
 
   - script: |
