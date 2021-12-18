@@ -21,7 +21,7 @@ steps:
     displayName: "Config gem"
 
   - script: |
-      gem install jekyll bundler
+      sudo gem install jekyll bundler
     displayName: "Install jekyll"
 
   - script: |
