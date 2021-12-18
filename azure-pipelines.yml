@@ -27,7 +27,7 @@ steps:
     displayName: "Install jekyll"
 
   - script: |
-      sudo jekyll build
+      sudo bundle exec jekyll build
     displayName: "Jekyll build"
 
   - task: CopyFiles@2
