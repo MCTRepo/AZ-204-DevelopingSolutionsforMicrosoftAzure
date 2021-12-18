@@ -25,7 +25,7 @@ steps:
     displayName: "Install jekyll"
 
   - script: |
-      jekyll build
+      sudo jekyll build
     displayName: "Jekyll buils"
 
   - task: PublishBuildArtifacts@1
