@@ -23,7 +23,6 @@ steps:
   - script: |
       sudo gem install jekyll bundler
       sudo gem install jekyll-sitemap jekyll-mentions jemoji jekyll-remote-theme jekyll-mentions
-      bundle install
     displayName: "Install jekyll"
 
   - script: |
