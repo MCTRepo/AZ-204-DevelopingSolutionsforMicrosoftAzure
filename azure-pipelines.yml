@@ -25,16 +25,16 @@ steps:
       sudo gem install jekyll-sitemap jekyll-mentions jemoji jekyll-remote-theme jekyll-mentions
     displayName: "Install jekyll"
 
-  - script: |
-      curl --output . https://github.com/MicrosoftLearning/Jekyll-Theme/archive/refs/heads/master.zip
-    displayName: "Download file"
+  # - script: |
+  #     curl --output . https://github.com/MicrosoftLearning/Jekyll-Theme/archive/refs/heads/master.zip
+  #   displayName: "Download file"
 
-  - task: ExtractFiles@1
-    inputs:
-      archiveFilePatterns: '**/*.zip'
-      destinationFolder: '$(System.DefaultWorkingDirectory)'
-      cleanDestinationFolder: false
-      overwriteExistingFiles: false
+  # - task: ExtractFiles@1
+  #   inputs:
+  #     archiveFilePatterns: '**/*.zip'
+  #     destinationFolder: '$(System.DefaultWorkingDirectory)'
+  #     cleanDestinationFolder: false
+  #     overwriteExistingFiles: false
 
   - script: |
       bundle exec jekyll build
